@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CreateUserModalService } from './shared/services/create-user-modal.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'crud-challenge';
+  constructor(public createUserModalService: CreateUserModalService) {}
 }

@@ -1,0 +1,73 @@
+<div (click)="createUserModalService.changeVisibility()" class="modal-overlay">
+</div>
+<div class="modal-content">
+  <button (click)="createUserModalService.changeVisibility()" class="close-modal">
+    <img src="../../../../assets/close.svg" alt="Fechar modal">
+  </button>
+  <form (ngSubmit)="submit()" [formGroup]="userForm" #formDir="ngForm" class="container">
+    <h2>Cadastrar usuário</h2>
+    <input type="text" placeholder="Nome" formControlName="name" />
+    <div *ngIf="name.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="name.errors?.['required']">* Campo é obrigatório</p>
+    </div>
+    <input type="email" placeholder="Email" formControlName="email" />
+    <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="email.errors?.['required']">* Campo é obrigatório</p>
+      <p *ngIf="email.errors?.['email']">* Email inválido</p>
+    </div>
+    <input type="text" placeholder="Cpf" formControlName="cpf" />
+    <div *ngIf="cpf.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="cpf.errors?.['required']">* Campo é obrigatório</p>
+    </div>
+    <div class="contacts">
+      <div>
+        <input type="text" placeholder="Telefone" formControlName="phone" />
+        <div *ngIf="phone.invalid && formDir.submitted" class="validation-error">
+          <p *ngIf="phone.errors?.['required']" >* Campo é obrigatório</p>
+        </div>
+      </div>
+      <div>
+        <input type="text" placeholder="Celular" formControlName="smartphone" />
+        <div *ngIf="smartphone.invalid && formDir.submitted" class="validation-error">
+          <p *ngIf="smartphone.errors?.['required']" >* Campo é obrigatório</p>
+        </div>
+      </div>
+    </div>
+    <div class="address-container">
+      <input type="text" placeholder="Rua" formControlName="street">
+      <div *ngIf="street.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="street.errors?.['required']">* Campo é obrigatório</p>
+      </div>
+      <div class="infos-left">
+        <input [ngClass]="number.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="Numero" formControlName="number">
+        <input [ngClass]="district.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="Bairro" formControlName="district">  
+        <input [ngClass]="city.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="Cidade" formControlName="city">
+      </div>
+      <div class="infos-right">
+        <input [ngClass]="cep.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="Cep" formControlName="cep">
+        <input [ngClass]="state.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="Estado" formControlName="state">
+        <input [ngClass]="country.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="País" formControlName="country">
+      </div>
+      <button type="button" (click)="addNewInputAddress()">
+        Adicionar mais um endereço
+        <img src="../../../../assets/add.svg" alt="Adicionar novo * campo de endereço">
+      </button>
+    </div>
+    <form name="new_addresses">
+      <div *ngFor="let n of number_addresses" class="address-container divisor">
+        <input type="text" placeholder="Rua" >
+        <div class="infos-left">
+          <input type="text" placeholder="Numero" >
+          <input type="text" placeholder="Bairro" >  
+          <input type="text" placeholder="Cidade" >
+        </div>
+        <div class="infos-right">
+          <input type="text" placeholder="Cep" >
+          <input type="text" placeholder="Estado" >
+          <input type="text" placeholder="País" >
+        </div>
+      </div>
+    </form>
+    <button type="submit">Cadastrar</button>
+  </form>
+</div>
