@@ -109,10 +109,8 @@ export class CreateUserModalComponent implements OnInit {
     return new_addresses
   }
 
-
   addNewInputAddress(): void {
     this.number_addresses.push(1)
-    console.log(this.number_addresses)
   }
 
   submit(): void {

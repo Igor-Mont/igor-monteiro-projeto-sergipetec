@@ -13,4 +13,10 @@ describe('CreateUserModalService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('service.changeVisibility should toggle the show value', () => {
+    const show = service.show
+    service.changeVisibility()
+    expect(service.show).toBe(!show);
+  });
 });

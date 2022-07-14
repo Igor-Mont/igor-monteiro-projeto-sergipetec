@@ -1,7 +1,7 @@
 <div (click)="createUserModalService.changeVisibility()" class="modal-overlay">
 </div>
 <div class="modal-content">
-  <button (click)="createUserModalService.changeVisibility()" class="close-modal">
+  <button (click)="createUserModalService.changeVisibility()" id="close-modal" class="close-modal">
     <img src="../../../../assets/close.svg" alt="Fechar modal">
   </button>
   <form (ngSubmit)="submit()" [formGroup]="userForm" #formDir="ngForm" class="container">
@@ -48,13 +48,13 @@
         <input [ngClass]="state.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="Estado" formControlName="state">
         <input [ngClass]="country.invalid && formDir.submitted ? 'invalid': ''" type="text" placeholder="País" formControlName="country">
       </div>
-      <button type="button" (click)="addNewInputAddress()">
+      <button id="btn" type="button" (click)="addNewInputAddress()">
         Adicionar mais um endereço
         <img src="../../../../assets/add.svg" alt="Adicionar novo * campo de endereço">
       </button>
     </div>
     <form name="new_addresses">
-      <div *ngFor="let n of number_addresses" class="address-container divisor">
+      <div id="new_container_addresses" *ngFor="let n of number_addresses" class="address-container divisor">
         <input type="text" placeholder="Rua" >
         <div class="infos-left">
           <input type="text" placeholder="Numero" >
