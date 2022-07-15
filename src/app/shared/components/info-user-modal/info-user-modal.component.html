@@ -7,27 +7,27 @@
     <h2>Informações do usuário</h2>
     <div class="infos">
       <div>
-        <strong>Nome:</strong> <p>Igor Monteiro</p>
+        <strong>Nome:</strong> <p>{{ infoUserModalService.user.nome }}</p>
       </div>
       <div class="two-infos-container">
         <div>
-          <strong>Email:</strong> <p>igor@gmail.com</p>
+          <strong>Email:</strong> <p>{{ infoUserModalService.user.email }}</p>
         </div>
         <div>
-          <strong>CPF:</strong> <p>2131312312</p>
+          <strong>CPF:</strong> <p>{{ infoUserModalService.user.cpf }}</p>
         </div>
       </div>
       <div class="two-infos-container">
         <div>
-          <strong>Telefone:</strong> <p>7129991919</p>
+          <strong>Telefone:</strong> <p>{{ infoUserModalService.user.telefone }}</p>
         </div>
         <div>
-          <strong>Celular:</strong> <p>799929243</p>
+          <strong>Celular:</strong> <p>{{ infoUserModalService.user.celular }}</p>
         </div>
       </div>
       <strong>Endereço(s):</strong>
-      <div *ngFor="let address of user.addressees" class="address">
-        <p>{{ address.rua }}, nº {{ address.numero }}, {{ address.bairro }}. CEP: {{ address.cep }}. {{ address.cidade }} - {{ address.estado }}</p>
+      <div *ngFor="let endereco of infoUserModalService.user.enderecos" class="address">
+        <p>{{ endereco.rua }}, nº {{ endereco.numero }}, {{ endereco.bairro }}. CEP: {{ endereco.cep }}. {{ endereco.cidade }} - {{ endereco.estado }}</p>
       </div>
     </div>
   </div>
