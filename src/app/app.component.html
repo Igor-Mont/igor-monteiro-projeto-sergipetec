@@ -1,3 +1,16 @@
-<app-info-user-modal *ngIf="infoUserModalService.show"></app-info-user-modal>
-<app-show-users>
-</app-show-users>
+
+<div class="container">
+  <app-info-user-modal *ngIf="infoUserModalService.show"></app-info-user-modal>
+  <div class="content">
+    <header>
+    <h1>Usuários cadastrados</h1>
+      <button type="button">
+        Adicionar
+        <img src="../assets/add-user.svg" alt="Adicionar novo usuário">
+      </button>
+    </header>
+    <app-show-users>
+    </app-show-users>
+    
+  </div>
+</div>
