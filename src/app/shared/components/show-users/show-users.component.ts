@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CreateUserModalService } from '../../services/create-user-modal.service';
 import { InfoUserModalService } from '../../services/info-user-modal.service';
 
 @Component({
@@ -56,7 +57,10 @@ export class ShowUsersComponent implements OnInit {
         ]
       }
     ]
-  constructor(public infoUserModalService: InfoUserModalService) {}
+  constructor(
+    public infoUserModalService: InfoUserModalService,
+    public createUserModalService: CreateUserModalService
+  ) {}
 
   ngOnInit(): void {}
 
