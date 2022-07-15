@@ -94,13 +94,13 @@ export class CreateUserModalComponent implements OnInit {
     while (addresses.length >= 7) {
       const addressArray = addresses.slice(0, 7)
       const address: Address = {
-        street: addressArray[0],
-        number: addressArray[1],
-        district: addressArray[2],
+        rua: addressArray[0],
+        numero: addressArray[1],
+        bairro: addressArray[2],
         cep: addressArray[3],
-        city: addressArray[4],
-        state: addressArray[5],
-        country: addressArray[6],
+        cidade: addressArray[4],
+        estado: addressArray[5],
+        pais: addressArray[6],
       }
       new_addresses.push(address)
       addresses = addresses.slice(6, 7*n)
@@ -117,13 +117,13 @@ export class CreateUserModalComponent implements OnInit {
     if(this.userForm.invalid) return
 
     const address: Address = {
-      street: this.street.value,
-      number: this.number.value,
-      district: this.district.value,
+      rua: this.street.value,
+      numero: this.number.value,
+      bairro: this.district.value,
       cep: this.cep.value,
-      city: this.city.value,
-      state: this.state.value,
-      country: this.country.value,
+      cidade: this.city.value,
+      estado: this.state.value,
+      pais: this.country.value,
     }
 
     const dataT = {

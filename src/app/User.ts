@@ -2,12 +2,12 @@ import { Address } from "./Address"
 
 interface User {
   id: number
-  name: string
+  nome: string
   email: string
   cpf: string
-  phone: string
-  smartphone: string
-  addresses: Address[]
+  telefone: string
+  celular: string
+  enderecos: Address[]
 }
 
 export { User }

@@ -76,4 +76,8 @@ export class ShowUsersComponent implements OnInit {
     this.infoUserModalService.changeVisibility()
   }
 
+  deleteUser(id: number): void {
+    this.users = this.users.filter(user => user.id !== id )
+  }
+
 }

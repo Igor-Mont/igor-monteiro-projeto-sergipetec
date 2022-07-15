@@ -1,11 +1,11 @@
 interface Address {
-  street: string
-  number: string
-  district: string
-  city: string
+  rua: string
+  numero: string
+  bairro: string
+  cidade: string
   cep: string
-  state: string
-  country: string
+  estado: string
+  pais: string
 }
 
 export { Address }

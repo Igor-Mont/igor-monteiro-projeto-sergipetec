@@ -1,4 +1,4 @@
-<table>
+<table *ngIf="users.length > 0" >
   <thead>
     <tr>
       <th>Nome</th>
@@ -16,10 +16,13 @@
         <button (click)="handleClick(user)">
           <img src="../../../../assets/search.svg" alt="Mais informações do usuário">
         </button>
-        <button>
+        <button (click)="deleteUser(user.id)">
           <img src="../../../../assets/trash.svg" alt="Excluir usuário">
         </button>
       </td>
     </tr>
   </tbody>
 </table>
+<div *ngIf="users.length == 0" class="unregistered-container">
+  <h3>Nenhum usuário cadastrado no sistema.</h3>
+</div>

@@ -12,6 +12,10 @@ table {
     text-align: left;
     font-weight: 400;
     line-height: 1.5rem;
+
+    &:last-child {
+      text-align: center;
+    }
   }
 
   td {
@@ -49,4 +53,14 @@ table {
       }
     }
   }
+}
+
+.unregistered-container {
+  margin-top: 4rem;
+  width: 100%;
+  display: flex;
+  color: $text-title;
+  font-weight: 400;
+  align-items: center;
+  justify-content: center;
 }
