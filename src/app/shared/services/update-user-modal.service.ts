@@ -4,11 +4,10 @@ import { User } from 'src/app/User';
 @Injectable({
   providedIn: 'root'
 })
-export class InfoUserModalService {
+export class UpdateUserModalService {
   show: boolean = false
   user!: User
-  constructor() { }
-
+  constructor() {}
 
   changeVisibility(): void {
     this.show = !this.show

@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CreateUserModalComponent } from './shared/components/create-user-modal/create-user-modal.component';
 import { InfoUserModalComponent } from './shared/components/info-user-modal/info-user-modal.component';
 import { ShowUsersComponent } from './shared/components/show-users/show-users.component';
+import { UpdateUserModalComponent } from './shared/components/update-user-modal/update-user-modal.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InfoUserModalComponent,
     ShowUsersComponent,
-    CreateUserModalComponent
+    CreateUserModalComponent,
+    UpdateUserModalComponent
   ],
   imports: [
     BrowserModule,

@@ -1,25 +1,6 @@
 {
   "contribuintes": [
     {
-      "id": 2,
-      "nome": "JOÃO AUGUSTO DE SOUZA",
-      "email": "jaugusto@gmail.com",
-      "cpf": "17737300023",
-      "telefone": "7932100055",
-      "celular": "799940033466",
-      "enderecos": [
-        {
-          "rua": "Romero Brito",
-          "numero": "59",
-          "bairro": "América",
-          "cidade": "Campo Grande",
-          "cep": "79002000",
-          "estado": "Mato Grosso do Sul",
-          "pais": "Brasil"
-        }
-      ]
-    },
-    {
       "nome": "Igor Nathan ",
       "email": "igor@mail.com",
       "cpf": "11122233344",

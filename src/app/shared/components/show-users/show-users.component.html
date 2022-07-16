@@ -13,8 +13,11 @@
       <td>{{ user.email }}</td>
       <td>{{ maskCPF(user.cpf) }}</td>
       <td>
-        <button (click)="handleClick(user)">
+        <button (click)="handleOpenInfoModal(user)">
           <img src="../../../../assets/search.svg" alt="Mais informações do usuário">
+        </button>
+        <button (click)="handleOpenUpdateModal(user)">
+          <img src="../../../../assets/edit.svg" alt="Editar usuário">
         </button>
         <button (click)="deleteUser(user && user.id)">
           <img src="../../../../assets/trash.svg" alt="Excluir usuário">

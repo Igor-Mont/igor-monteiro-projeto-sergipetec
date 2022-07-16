@@ -23,4 +23,8 @@ export class UserService {
   delete(id: number) {
     return this.http.delete<User>(`${this.apiUrl}/${id}`)
   }
+
+  update(user: User) {
+    return this.http.patch<User>(`${this.apiUrl}/${user.id}`, user)
+  }
 }

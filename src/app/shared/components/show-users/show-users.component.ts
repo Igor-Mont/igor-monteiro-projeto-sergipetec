@@ -2,6 +2,7 @@ import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { User } from 'src/app/User';
 import { CreateUserModalService } from '../../services/create-user-modal.service';
 import { InfoUserModalService } from '../../services/info-user-modal.service';
+import { UpdateUserModalService } from '../../services/update-user-modal.service';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -15,6 +16,7 @@ export class ShowUsersComponent implements OnInit {
   constructor(
     public infoUserModalService: InfoUserModalService,
     public createUserModalService: CreateUserModalService,
+    public updateUserModalService: UpdateUserModalService,
     private userService: UserService
   ) {
     this.getUsers()
@@ -38,9 +40,14 @@ export class ShowUsersComponent implements OnInit {
     return mask.replace(/#/g, () => v[i++] || '')
   }
 
-  handleClick(user: any): void {
+  handleOpenInfoModal(user: any): void {
     this.infoUserModalService.setUser(user)
     this.infoUserModalService.changeVisibility()
+  }
+
+  handleOpenUpdateModal(user: any): void {
+    this.updateUserModalService.setUser(user)
+    this.updateUserModalService.changeVisibility()
   }
 
   deleteUser(id: number | undefined): void {
