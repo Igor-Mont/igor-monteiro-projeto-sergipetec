@@ -1,7 +1,7 @@
 import { Address } from "./Address"
 
 interface User {
-  id: number
+  id?: number
   nome: string
   email: string
   cpf: string

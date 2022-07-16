@@ -8,8 +8,14 @@ import { InfoUserModalService } from './shared/services/info-user-modal.service'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  actualizations: number = 0
   constructor(
     public infoUserModalService: InfoUserModalService, 
     public createUserModalService: CreateUserModalService
   ) {}
+
+  handleCLick(): void {
+    this.actualizations += this.actualizations + 1
+  }
+
 }

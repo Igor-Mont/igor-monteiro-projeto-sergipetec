@@ -1,14 +1,15 @@
 <div class="container">
   <app-info-user-modal *ngIf="infoUserModalService.show"></app-info-user-modal>
-  <app-create-user-modal *ngIf="createUserModalService.show"></app-create-user-modal>
+  <app-create-user-modal (create_user_event)="handleCLick()" *ngIf="createUserModalService.show"></app-create-user-modal>
   <div class="content">
     <header>
     <h1>Usuários cadastrados</h1>
-      <button (click)="createUserModalService.changeVisibility()" type="button">
+    <button (click)="createUserModalService.changeVisibility()" type="button">
         Adicionar
         <img src="../assets/add-user.svg" alt="Adicionar novo usuário">
       </button>
     </header>
-    <app-show-users></app-show-users>
+    <app-show-users [actualizations]="actualizations">
+    </app-show-users>
   </div>
 </div>

@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { User } from 'src/app/User';
 import { CreateUserModalService } from '../../services/create-user-modal.service';
 import { InfoUserModalService } from '../../services/info-user-modal.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-show-users',
@@ -8,61 +10,26 @@ import { InfoUserModalService } from '../../services/info-user-modal.service';
   styleUrls: ['./show-users.component.scss']
 })
 export class ShowUsersComponent implements OnInit {
-    users = [
-      {
-        "id": 1,
-        "nome": "MARIA CRISTINA PEREIRA",
-        "email": "mcristina@gmail.com",
-        "cpf": "93958790097",
-        "telefone": "7932100044",
-        "celular": "79994003345",
-        "enderecos": [
-          {
-            "rua": "Pablo Picasso",
-            "numero": "43",
-            "bairro": "Suiça",
-            "cidade": "Aracaju",
-            "cep": "49000000",
-            "estado": "Sergipe",
-            "pais": "Brasil"
-          },
-          {
-            "rua": "João Ribeiro",
-            "numero": "1003",
-            "bairro": "Cardoso",
-            "cidade": "Joinville",
-            "cep": "09530210",
-            "estado": "Santa Catarina",
-            "pais": "Brasil"
-          }
-        ]
-      },
-      {
-        "id": 2,
-        "nome": "JOÃO AUGUSTO DE SOUZA",
-        "email": "jaugusto@gmail.com",
-        "cpf": "17737300023",
-        "telefone": "7932100055",
-        "celular": "799940033466",
-        "enderecos": [
-          {
-            "rua": "Romero Brito",
-            "numero": "59",
-            "bairro": "América",
-            "cidade": "Campo Grande",
-            "cep": "79002000",
-            "estado": "Mato Grosso do Sul",
-            "pais": "Brasil"
-          }
-        ]
-      }
-    ]
+  @Input() actualizations = 0
+  users: User[] = []
   constructor(
     public infoUserModalService: InfoUserModalService,
-    public createUserModalService: CreateUserModalService
-  ) {}
+    public createUserModalService: CreateUserModalService,
+    private userService: UserService
+  ) {
+    this.getUsers()
+  }
 
   ngOnInit(): void {}
+  ngOnChanges({ actualizations }: SimpleChanges): void {
+    if (actualizations.previousValue !== actualizations.currentValue) {
+      this.getUsers()
+    }
+  }
+
+  getUsers(): void {
+    this.userService.getAll().subscribe(users => (this.users = users))
+  }
 
   maskCPF(value: string, mask = '###.###.###-##') {
     let i = 0
@@ -76,8 +43,9 @@ export class ShowUsersComponent implements OnInit {
     this.infoUserModalService.changeVisibility()
   }
 
-  deleteUser(id: number): void {
+  deleteUser(id: number | undefined): void {
     this.users = this.users.filter(user => user.id !== id )
+    this.userService.delete(id!).subscribe()
   }
 
 }

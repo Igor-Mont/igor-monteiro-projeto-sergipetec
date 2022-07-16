@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Address } from 'src/app/Address';
+import { User } from 'src/app/User';
 import { CreateUserModalService } from '../../services/create-user-modal.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-create-user-modal',
@@ -9,11 +11,14 @@ import { CreateUserModalService } from '../../services/create-user-modal.service
   styleUrls: ['./create-user-modal.component.scss']
 })
 export class CreateUserModalComponent implements OnInit {
+  @Output() create_user_event: EventEmitter<any> = new EventEmitter()
   number_addresses: number[] = []
-  
   userForm!: FormGroup
   
-  constructor(public createUserModalService: CreateUserModalService) {}
+  constructor(
+    public createUserModalService: CreateUserModalService,
+    private userService: UserService
+  ) {}
   
   ngOnInit(): void {
     this.userForm = new FormGroup({
@@ -126,18 +131,18 @@ export class CreateUserModalComponent implements OnInit {
       pais: this.country.value,
     }
 
-    const dataT = {
-      name: this.name.value,
+    const user: User = {
+      nome: this.name.value,
       email: this.email.value,
       cpf: this.cpf.value,
-      phone: this.phone.value,
-      smartphone: this.smartphone.value,
-      addresses: [address ,...this.getNewAddresses()]
+      telefone: this.phone.value,
+      celular: this.smartphone.value,
+      enderecos: [address ,...this.getNewAddresses()]
     }
 
+    this.userService.create(user).subscribe()
+    this.create_user_event.emit()
     this.createUserModalService.changeVisibility()
-
-    console.log(dataT)
   } 
 
 }
