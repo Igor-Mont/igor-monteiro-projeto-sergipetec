@@ -1,3 +1,23 @@
 {
-  "contribuintes": []
+  "contribuintes": [
+    {
+      "nome": "Igor",
+      "email": "igor@mail.com",
+      "cpf": "11122233344",
+      "telefone": "79999920435",
+      "celular": "79999920435",
+      "enderecos": [
+        {
+          "rua": "Avenida Manoel",
+          "numero": "221",
+          "bairro": "Centro",
+          "cep": "49360000",
+          "cidade": "Boquim",
+          "estado": "Sergipe",
+          "pais": "Brasil"
+        }
+      ],
+      "id": 1
+    }
+  ]
 }

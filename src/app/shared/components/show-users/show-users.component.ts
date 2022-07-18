@@ -23,7 +23,9 @@ export class ShowUsersComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
   ngOnChanges({ actualizations }: SimpleChanges): void {
+    if (actualizations.isFirstChange()) return
     if (actualizations.previousValue !== actualizations.currentValue) {
       this.getUsers()
     }
