@@ -1,0 +1,97 @@
+$background: #F0F2F5;
+$text-box: #F0F2F5;
+$text-title: #363F5F;
+$background-box: #363F5F;
+$text-body: #969CB3;
+$green: #33CC95;
+$blue: #5429CC;
+$red: #E52E4D;
+
+:host {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  width: 100%;
+  margin: auto;
+  max-width: 550px;
+  overflow: auto;
+  height: auto;
+  background-color: $background;
+  padding: 2rem;
+  position: relative;
+  border-radius: 0.25rem;
+}
+
+.close-modal {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  border: 0;
+  background: transparent;
+  transition: filter 0.2s;
+
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
+
+.container {
+  h2 {
+    color: $text-title;
+    font-size: 1.5rem;
+  }
+
+  .infos {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+
+    div {
+      display: flex;
+      gap: 0.5rem
+    }
+
+    .two-infos-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .address {
+      padding: 0.5rem;
+      border-radius: 15px;
+      width: 100%;
+      display: flex;
+      font-size: 0.8rem;
+      justify-content: center;
+      
+      background-color: $background-box;
+      color: $text-box;
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .modal-content {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 481px) {
+  .modal-content {
+    max-width: 350px;
+  }
+}

@@ -1,0 +1,34 @@
+<div (click)="infoUserModalService.changeVisibility()" class="modal-overlay"></div>
+<div class="modal-content">
+  <button (click)="infoUserModalService.changeVisibility()" id="close-modal" class="close-modal">
+    <img src="../../../../assets/close.svg" alt="Fechar modal">
+  </button>
+  <div class="container">
+    <h2>Informações do usuário</h2>
+    <div class="infos">
+      <div>
+        <strong>Nome:</strong> <p>{{ infoUserModalService.user.nome }}</p>
+      </div>
+      <div class="two-infos-container">
+        <div>
+          <strong>Email:</strong> <p>{{ infoUserModalService.user.email }}</p>
+        </div>
+        <div>
+          <strong>CPF:</strong> <p>{{ infoUserModalService.user.cpf }}</p>
+        </div>
+      </div>
+      <div class="two-infos-container">
+        <div>
+          <strong>Telefone:</strong> <p>{{ infoUserModalService.user.telefone }}</p>
+        </div>
+        <div>
+          <strong>Celular:</strong> <p>{{ infoUserModalService.user.celular }}</p>
+        </div>
+      </div>
+      <strong>Endereço(s):</strong>
+      <div *ngFor="let endereco of infoUserModalService.user.enderecos" class="address">
+        <p>{{ endereco.rua }}, nº {{ endereco.numero }}, {{ endereco.bairro }}. CEP: {{ endereco.cep }}. {{ endereco.cidade }} - {{ endereco.estado }}</p>
+      </div>
+    </div>
+  </div>
+</div>
